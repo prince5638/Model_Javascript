@@ -17,11 +17,22 @@ const closeModel = ()=>{
     overlay.classList.add('hidden');
 };
 
+// Opening the model on clicking the button.
 for(let i =0; i < btnsOpenModal.length; i++)
 {
     btnsOpenModal[i].addEventListener('click', openModel)
-}
+};
 
+// closing model on clicking the close button. 
 btnCloseModal.addEventListener('click', closeModel);
-
+// closing event on clicking outside the overlay(model area).
 overlay.addEventListener('click', closeModel);
+
+// closing the model on clicking an perticular key when model is open.
+document.addEventListener('keydown', (e)=>{
+    console.log(e.key);
+    if(e.key === 'Escape' && !modal.classList.contains('hidden'))
+    {
+        closeModel();
+    }
+});
